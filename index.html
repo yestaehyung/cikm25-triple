@@ -183,8 +183,13 @@
             <h2 class="title is-3">📖 Introduction</h2>
             <div class="content has-text-justified">
               <p>
-                Write your introduction here. Explain the problem you're solving
-                and why it's important.
+                Accurate user profiling remains a central challenge in personalized services. While behavioral intentions are shaped by personal attitudes, subjective norms, and perceived behavioral control, existing LLM-based profiling approaches often extract only surface-level preferences without systematically modeling the core latent variables that drive user behavior.
+              </p>
+              <p>
+                To address these limitations, we propose <strong>TRIPLE</strong> (TPB-driven Profiling with LLM refinement), a dynamic profiling framework that incorporates the Theory of Planned Behavior (TPB) into user modeling. TRIPLE leverages LLM reasoning to extract key TPB components—attitude, subjective norms, and perceived behavioral control—from user data and continuously updates these representations through a prediction-evaluation-refinement cycle.
+              </p>
+              <p>
+                Our experiments on LaMP-3 and LaMP-4 datasets demonstrate that TRIPLE consistently outperforms existing methods across various open-source LLMs, including Llama-3.1-8B-Instruct and Qwen-2.5-32B-Instruct, providing the first systematic integration of social-psychological theory into LLM-based user profiling.
               </p>
             </div>
           </div>
