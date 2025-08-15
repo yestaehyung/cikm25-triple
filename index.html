@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <meta
       name="description"
-      content="Your research paper description goes here."
+      content="Project page for TRIPLE: Externalizing Social-Cognitive Structures for User Modeling: Toward Theory-Driven Profiling with LLMs."
     />
-    <meta name="keywords" content="Your, Keywords, Here" />
+    <meta
+      name="keywords"
+      content="User Modeling, Personalization, LLM, Theory of Planned Behavior, TRIPLE"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
       Externalizing Social-Cognitive Structures for User Modeling: Toward
@@ -51,16 +54,18 @@
               </h1>
               <div class="is-size-5 publication-authors">
                 <span class="author-block">
-                  <a href="#">Taehyung Noh</a><sup>1</sup>,</span
+                  <a href="https://yestaehyung.github.io/">Taehyung Noh</a
+                  ><sup>1</sup>,</span
                 >
                 <span class="author-block">
                   <a href="#">Seungwan Jin</a><sup>1</sup>,</span
                 >
                 <span class="author-block">
-                  <a href="#">Haein Yeo</a><sup>1</sup>
+                  <a href="#">Haein Yeo</a><sup>1</sup>,
                 </span>
                 <span class="author-block">
-                  <a href="#">Kyungsik Han</a><sup>*</sup>
+                  <a href="https://kyungsikhan.com/">Kyungsik Han</a
+                  ><sup>1,*</sup>
                 </span>
               </div>
 
@@ -80,7 +85,7 @@
                       class="external-link button is-normal is-rounded is-dark"
                     >
                       <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="ai ai-arxiv"></i>
                       </span>
                       <span>Paper</span>
                     </a>
@@ -105,34 +110,27 @@
       </div>
     </section>
 
-    <!-- Optional teaser section -->
+    <!-- Teaser section -->
     <section class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
-          <!-- Add your teaser image or video here -->
           <div class="has-text-centered">
             <img
-              src="./static/images/triple_overall.jpg"
-              alt="TRIPLE Framework Overview"
-              style="max-width: 100%; height: auto"
+              src="./static/images/figure1.png"
+              alt="TRIPLE Framework Architecture"
+              style="max-width: 100%; height: auto; border-radius: 10px"
             />
           </div>
-          <h2 class="subtitle has-text-centered">
-            Brief description of your research contribution.
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem">
+            <b>TRIPLE</b>: A novel framework that integrates the
+            <b>Theory of Planned Behavior (TPB)</b> with Large Language Models
+            to create dynamic, theory-driven user profiles for enhanced
+            personalization. The prediction-evaluation-refinement cycle plays a
+            crucial role in capturing evolving user states.
           </h2>
         </div>
       </div>
     </section>
-
-    <!-- Optional results carousel - can be removed if not needed -->
-    <!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title has-text-centered">Results</h2>
-      Add your result images or videos here
-    </div>
-  </div>
-</section> -->
 
     <section class="section">
       <div class="container is-max-desktop">
@@ -165,33 +163,71 @@
           </div>
         </div>
 
-
         <!-- Introduction Section -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">📖 Introduction</h2>
             <div class="content has-text-justified">
               <p>
-                Accurate user profiling remains a central challenge in personalized services. While behavioral intentions are shaped by personal attitudes, subjective norms, and perceived behavioral control, existing LLM-based profiling approaches often extract only surface-level preferences without systematically modeling the core latent variables that drive user behavior.
+                Accurate user profiling remains a central challenge in
+                personalized services. While behavioral intentions are shaped by
+                personal attitudes, subjective norms, and perceived behavioral
+                control, existing LLM-based profiling approaches often extract
+                only surface-level preferences without systematically modeling
+                the core latent variables that drive user behavior.
               </p>
               <p>
-                To address these limitations, we propose <strong>TRIPLE</strong> (TPB-driven Profiling with LLM refinement), a dynamic profiling framework that incorporates the Theory of Planned Behavior (TPB) into user modeling. TRIPLE leverages LLM reasoning to extract key TPB components—attitude, subjective norms, and perceived behavioral control—from user data and continuously updates these representations through a prediction-evaluation-refinement cycle.
+                To address these limitations, we propose
+                <strong>TRIPLE</strong> (TPB-dRIven Profiling with LLM
+                rEfinement), a dynamic profiling framework that incorporates the
+                Theory of Planned Behavior (TPB) into user modeling. TRIPLE
+                leverages LLM reasoning to extract key TPB components—attitude,
+                subjective norms, and perceived behavioral control—from input
+                data and represent them in natural language. These latent
+                variables are then continuously updated through a
+                prediction-evaluation-refinement cycle to better reflect
+                evolving user states.
               </p>
               <p>
-                Our experiments on LaMP-3 and LaMP-4 datasets demonstrate that TRIPLE consistently outperforms existing methods across various open-source LLMs, including Llama-3.1-8B-Instruct and Qwen-2.5-32B-Instruct, providing the first systematic integration of social-psychological theory into LLM-based user profiling.
+                This work presents the first systematic integration of
+                social-psychological theory into LLM-based profiling, offering
+                broad applicability across various LLMs without the need for
+                additional training. TRIPLE demonstrates strong potential for
+                application across diverse domains, offering insights to guide
+                future research.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- Dataset Statistics Section (PrefEval style) -->
+        <!-- Dataset Statistics Section -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">📊 Dataset Statistics</h2>
-            <div class="content">
-              <p>Add your dataset statistics charts and visualizations here.</p>
-              <!-- Add your statistics charts -->
-              <!-- <img src="./static/images/dataset_stats.png" alt="Dataset Statistics" style="max-width: 100%; height: auto;"> -->
+            <h2 class="title is-3">📊 Datasets</h2>
+            <div class="content has-text-justified">
+              <p>
+                We evaluate TRIPLE on the LaMP benchmark, focusing on two
+                representative tasks:
+              </p>
+              <ul>
+                <li>
+                  <strong>LaMP-3 (Product Rating Prediction):</strong> This task
+                  involves predicting product ratings on a 1-5 scale for Amazon
+                  items based on users' review histories. The dataset contains
+                  2,500 test samples, and performance is evaluated using Mean
+                  Absolute Error (MAE) and Root Mean Square Error (RMSE).
+                </li>
+                <li>
+                  <strong>LaMP-4 (News Headline Generation):</strong> This task
+                  involves generating personalized news headlines that match a
+                  user's writing style. It includes 1,800 test samples, with
+                  performance evaluated using ROUGE-1 and ROUGE-L scores.
+                </li>
+              </ul>
+              <p>
+                To preserve the temporal structure of user behavior, we use a
+                time-based separation approach for evaluation on the test set.
+              </p>
             </div>
           </div>
         </div>
@@ -201,41 +237,81 @@
           <div class="column is-four-fifths">
             <h2 class="title is-3">📈 Experiment Results</h2>
             <div class="content">
+              <h3 class="title is-4">Main Performance Comparison</h3>
               <p>
-                Present your experimental results here with charts and analysis.
+                TRIPLE consistently achieves the highest or second-highest
+                performance across all evaluation models and tasks, even without
+                the refinement cycle. The results underscore our hypothesis that
+                modeling core latent variables yields more accurate behavioral
+                predictions than capturing surface-level preferences.
               </p>
-              <!-- Add your results charts -->
-              <!-- <img src="./static/images/results.png" alt="Experiment Results" style="max-width: 100%; height: auto;"> -->
+              <img
+                src="./static/images/table1.png"
+                alt="Main experiment results table"
+                style="max-width: 100%; height: auto; margin-bottom: 2rem"
+              />
+
+              <h3 class="title is-4">Role of Profile Refinement</h3>
+              <p>
+                The iterative refinement process progressively enhances the
+                model's ability to capture users' core latent variables. As
+                shown below, performance consistently improves with more
+                refinement iterations (R0 to R5), validating that the errors
+                identified during evaluation successfully guide adjustments to
+                the TPB representations.
+              </p>
+              <img
+                src="./static/images/figure2.png"
+                alt="Impact of profile refinement iterations"
+                style="max-width: 100%; height: auto; margin-bottom: 2rem"
+              />
+
+              <h3 class="title is-4">Role of Profile Update</h3>
+              <p>
+                Our dynamic update method (blue line) achieves the highest
+                performance and shows progressive improvements over time. In
+                contrast, fully regenerating the profile from scratch (orange
+                line) or using a simple sliding window (purple line) fails to
+                effectively capture the evolving nature of users' long-term
+                latent variables.
+              </p>
+              <img
+                src="./static/images/figure3.png"
+                alt="Impact of profile update strategies"
+                style="max-width: 100%; height: auto"
+              />
             </div>
           </div>
         </div>
 
-        <!-- Error Analysis Section (PrefEval style) -->
+        <!-- Error Analysis Section -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">🔍 Error Analysis</h2>
-            <div class="content">
-              <p>Add your error analysis here.</p>
-              <!-- Add your error analysis charts -->
-              <!-- <img src="./static/images/error_analysis.png" alt="Error Analysis" style="max-width: 100%; height: auto;"> -->
+            <h2 class="title is-3">🔍 Error-Driven Refinement</h2>
+            <div class="content has-text-justified">
+              <p>
+                Our framework's core refinement cycle is a form of error
+                analysis in action. The process assesses how well the current
+                user profile contributes to behavior prediction and continuously
+                updates it to minimize prediction error.
+              </p>
+              <p>
+                When a prediction (e.g., a product rating) generated from the
+                user's profile is incorrect, the discrepancy between the
+                predicted behavior and the ground truth is used as a signal. The
+                LLM is then prompted to refine the user's TPB profile (Attitude,
+                Subjective Norm, Perceived Behavioral Control) based on this
+                error and a generated explanation. This iterative process allows
+                TRIPLE to dynamically correct and adapt the user's psychological
+                profile, leading to more accurate predictions in subsequent
+                steps.
+              </p>
             </div>
           </div>
         </div>
-
-        <!-- Optional Video Section -->
-        <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">🎥 Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
       </div>
     </section>
 
-    <!-- Additional sections can be added here as needed -->
     <section class="section">
       <div class="container is-max-desktop">
         <!-- Methodology Section -->
@@ -244,8 +320,37 @@
             <h2 class="title is-3">⚙️ Methodology</h2>
             <div class="content has-text-justified">
               <p>
-                Describe your methodology here. Include diagrams and technical
-                details about your approach.
+                The TRIPLE framework consists of four main stages: (1)
+                generating an initial profile by extracting TPB components using
+                an LLM, (2) performing a personalization task using the
+                generated profile, (3) refining the profile based on behavior
+                prediction results, and (4) dynamically updating the user
+                profile over time. The overall architecture is illustrated in
+                the figure at the top of the page.
+              </p>
+              <p>
+                <strong>1. TPB-based Initial Profile Construction:</strong> We
+                analyze a user's textual data using an LLM to extract the three
+                key components of the Theory of Planned Behavior (TPB):
+                <em>attitude</em>, <em>subjective norm</em>, and
+                <em>perceived behavioral control</em>. These are stored in a
+                structured JSON format.
+              </p>
+              <p>
+                <strong>2. Profile Refinement:</strong> We adopt an iterative
+                cycle of prediction, evaluation, and refinement. Given a
+                profile, the model predicts user behavior. The prediction is
+                compared with the ground truth, and the resulting error is used
+                to prompt the LLM to refine the profile. This is repeated N
+                times (N=5 in our experiments) to select the best-performing
+                profile.
+              </p>
+              <p>
+                <strong>3. Profile Update:</strong> To capture temporal changes,
+                the optimal profile from the previous time step is used as the
+                starting point for refinement with new user data. This allows
+                the model to progressively adapt to the user's evolving
+                preferences and behavioral patterns over time.
               </p>
             </div>
           </div>
@@ -257,8 +362,25 @@
             <h2 class="title is-3">🔗 Related Work</h2>
             <div class="content has-text-justified">
               <p>
-                Discuss related work in your field and how your approach differs
-                from or builds upon existing methods.
+                While traditional methods like collaborative filtering often
+                lack interpretability, the advent of LLMs has opened new avenues
+                for personalized recommendation. Recent studies have explored
+                summarizing user interactions or constructing intermediate user
+                profiles from text. For example, GPG extracts writing styles and
+                preferences, while PURE incrementally updates profiles based on
+                user likes and dislikes.
+              </p>
+              <p>
+                Despite these advances, most existing LLM-based methods focus on
+                identifying surface-level features like favored keywords or
+                writing styles, without modeling the deeper psychosocial
+                mechanisms that drive decisions. User profiles are often treated
+                as static or updated naively. To overcome these limitations, we
+                propose incorporating the Theory of Planned Behavior (TPB), a
+                foundational framework in social psychology, into LLM-based user
+                profiling. To the best of our knowledge, this is the first study
+                to successfully incorporate a theory-driven approach into
+                LLM-based personalization.
               </p>
             </div>
           </div>
@@ -269,11 +391,14 @@
     <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
         <h2 class="title">BibTeX</h2>
-        <pre><code>@article{yourpaper2024,
-  author    = {Author1, FirstName and Author2, FirstName and Author3, FirstName},
-  title     = {Your Paper Title Here},
-  journal   = {Conference/Journal Name},
-  year      = {2024},
+        <pre><code>@inproceedings{noh2025triple,
+  author    = {Noh, Taehyung and Jin, Seungwan and Yeo, Haein and Han, Kyungsik},
+  title     = {Externalizing Social-Cognitive Structures for User Modeling: Toward Theory-Driven Profiling with LLMs},
+  booktitle = {Proceedings of the 34th ACM International Conference on Information and Knowledge Management (CIKM '25)},
+  year      = {2025},
+  month     = {November},
+  publisher = {ACM},
+  doi       = {10.1145/XXXXXX.XXXXXX},
 }</code></pre>
       </div>
     </section>
@@ -281,30 +406,11 @@
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
-          <!-- Add your paper PDF and GitHub links here -->
-          <a class="icon-link" href="#">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-          <a class="icon-link" href="#" class="external-link">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-        <div class="columns is-centered">
-          <div class="column is-8">
-            <div class="content">
-              <p>
-                This website is adapted from
-                <a href="https://nerfies.github.io">Nerfies</a>, licensed under
-                a
-                <a
-                  rel="license"
-                  href="http://creativecommons.org/licenses/by-sa/4.0/"
-                  >Creative Commons Attribution-ShareAlike 4.0 International
-                  License</a
-                >.
-              </p>
-            </div>
-          </div>
+          <p>
+            This website is adapted from the
+            <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            template.
+          </p>
         </div>
       </div>
     </footer>
