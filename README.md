@@ -4,7 +4,7 @@
 
 This repository contains the project website for the TRIPLE framework. The website provides comprehensive information about our research, methodology, and experimental results.
 
-🌐 **Website**: [https://triple-cikm25.github.io/triple](https://triple-cikm25.github.io/triple)
+🌐 **Website**: [https://yestaehyung.github.io/cikm25-triple/](https://yestaehyung.github.io/cikm25-triple/)
 
 ## Repository Structure
 
