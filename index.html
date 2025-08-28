@@ -205,8 +205,9 @@
             <h2 class="title is-3">📊 Datasets</h2>
             <div class="content has-text-justified">
               <p>
-                We evaluate TRIPLE on the LaMP benchmark, focusing on two
-                representative tasks:
+                We evaluate TRIPLE on the
+                <a href="https://lamp-benchmark.github.io/">LaMP</a>
+                benchmark, focusing on two representative tasks:
               </p>
               <ul>
                 <li>
@@ -439,6 +440,144 @@
                 profiling. To the best of our knowledge, this is the first study
                 to successfully incorporate a theory-driven approach into
                 LLM-based personalization.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompts Used Section -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">💬 Prompts Used</h2>
+            <div class="content has-text-justified">
+              <p>
+                To ensure reproducibility and transparency, we provide the key
+                prompts used in our TRIPLE framework. These prompts guide the
+                LLM through the TPB-based profiling process.
+              </p>
+
+              <h3 class="title is-4">1. Initial Profile Generation Prompt</h3>
+              <div
+                class="box"
+                style="
+                  text-align: left;
+                  background-color: #f8f9fa;
+                  border-left: 4px solid #28a745;
+                "
+              >
+                <pre
+                  style="
+                    white-space: pre-wrap;
+                    font-size: 0.9em;
+                    line-height: 1.4;
+                  "
+                ><code>You are tasked with creating a user profile based on their historical behavior data. Analyze the provided user data and extract the following three components according to the Theory of Planned Behavior (TPB):
+
+1. **Attitude**: The user's personal evaluation and feelings toward the behavior or domain
+2. **Subjective Norm**: The user's perception of social pressure or influence from others
+3. **Perceived Behavioral Control**: The user's perception of their ability to perform the behavior
+
+User Data:
+{user_history}
+
+Please provide a detailed analysis for each TPB component in natural language, focusing on the psychological and social factors that drive this user's behavior. Format your response as a JSON object with keys: "attitude", "subjective_norm", "perceived_behavioral_control".</code></pre>
+              </div>
+
+              <h3 class="title is-4">2. Behavior Prediction Prompt</h3>
+              <div
+                class="box"
+                style="
+                  text-align: left;
+                  background-color: #f8f9fa;
+                  border-left: 4px solid #007bff;
+                "
+              >
+                <pre
+                  style="
+                    white-space: pre-wrap;
+                    font-size: 0.9em;
+                    line-height: 1.4;
+                  "
+                ><code>Given the user profile and current context, predict the user's behavior based on their TPB characteristics.
+
+User Profile:
+- Attitude: {attitude}
+- Subjective Norm: {subjective_norm} 
+- Perceived Behavioral Control: {perceived_behavioral_control}
+
+Current Context: {current_context}
+
+Based on this user's TPB profile, predict their {task_specific_behavior}. Consider how their attitude, social influences, and perceived control would shape their response in this situation.</code></pre>
+              </div>
+
+              <h3 class="title is-4">3. Profile Refinement Prompt</h3>
+              <div
+                class="box"
+                style="
+                  text-align: left;
+                  background-color: #f8f9fa;
+                  border-left: 4px solid #dc3545;
+                "
+              >
+                <pre
+                  style="
+                    white-space: pre-wrap;
+                    font-size: 0.9em;
+                    line-height: 1.4;
+                  "
+                ><code>The current user profile led to an incorrect prediction. Please refine the TPB profile based on the prediction error.
+
+Current Profile:
+- Attitude: {current_attitude}
+- Subjective Norm: {current_subjective_norm}
+- Perceived Behavioral Control: {current_perceived_behavioral_control}
+
+Prediction Made: {predicted_behavior}
+Actual Behavior: {actual_behavior}
+Error Analysis: {error_explanation}
+
+Based on this discrepancy, update the user's TPB profile to better reflect their true behavioral patterns. Focus on which components (attitude, subjective norm, or perceived behavioral control) might need adjustment to align with the observed behavior.
+
+Provide the refined profile in the same JSON format with updated descriptions for each component.</code></pre>
+              </div>
+
+              <h3 class="title is-4">4. Profile Update Prompt</h3>
+              <div
+                class="box"
+                style="
+                  text-align: left;
+                  background-color: #f8f9fa;
+                  border-left: 4px solid #6f42c1;
+                "
+              >
+                <pre
+                  style="
+                    white-space: pre-wrap;
+                    font-size: 0.9em;
+                    line-height: 1.4;
+                  "
+                ><code>Update the existing user profile with new behavioral data while preserving learned patterns from previous interactions.
+
+Previous Profile:
+- Attitude: {previous_attitude}
+- Subjective Norm: {previous_subjective_norm}
+- Perceived Behavioral Control: {previous_perceived_behavioral_control}
+
+New User Data: {new_user_data}
+
+Integrate the new information with the existing profile. Consider:
+1. How the new data might modify existing TPB components
+2. Which aspects of the previous profile should be preserved
+3. How to capture temporal evolution in user behavior
+
+Provide an updated TPB profile that reflects both historical patterns and recent behavioral changes.</code></pre>
+              </div>
+
+              <p>
+                These prompts are designed to systematically guide the LLM
+                through each stage of the TRIPLE framework, ensuring consistent
+                extraction and refinement of TPB-based user profiles across
+                different tasks and domains.
               </p>
             </div>
           </div>
