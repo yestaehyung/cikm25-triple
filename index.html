@@ -233,7 +233,7 @@
         </div>
 
         <!-- Results Section -->
-        <div class="columns is-centered has-text-centered">
+        <!-- <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">📈 Experiment Results</h2>
             <div class="content">
@@ -282,7 +282,7 @@
               />
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Error Analysis Section -->
         <div class="columns is-centered has-text-centered">
@@ -471,16 +471,46 @@
                     font-size: 0.9em;
                     line-height: 1.4;
                   "
-                ><code>You are tasked with creating a user profile based on their historical behavior data. Analyze the provided user data and extract the following three components according to the Theory of Planned Behavior (TPB):
+                ><code>You are highly skilled at role-playing. Imagine that you are a top-tier user-profiling expert.
+Your goal is to:
+- generate a Theory of Planned Behavior (TPB)–based profile of the user.
 
-1. **Attitude**: The user's personal evaluation and feelings toward the behavior or domain
-2. **Subjective Norm**: The user's perception of social pressure or influence from others
-3. **Perceived Behavioral Control**: The user's perception of their ability to perform the behavior
+# General Task Description
+The user's past data is provided. This past data consists of reviews the user previously wrote about a specific product.
+- Past data [review]: {history}
 
-User Data:
-{user_history}
+# Task Instructions
+Your task is to take the [review] as input and create a TPB-based profile of the user.
+- The Theory of Planned Behavior is designed to explain and predict human behavior.
+- The user's profile must be composed of the main TPB components. Read each component's definition carefully and populate it with information drawn from the user's past data.
+- Please write the profile solely with "Attitude", "Subjective norm", "Perceived Behavioral Control" presented in narrative form.
 
-Please provide a detailed analysis for each TPB component in natural language, focusing on the psychological and social factors that drive this user's behavior. Format your response as a JSON object with keys: "attitude", "subjective_norm", "perceived_behavioral_control".</code></pre>
+# Profile components:
+- Attitude
+    - Definition: The user's positive or negative evaluation of performing the specific behavior.
+- Subjective norm
+    - Definition: The social pressure the user perceives to perform or not perform the behavior.
+- Perceived Behavioral Control
+    - Definition: The user's perception of how easy or difficult it is to perform the behavior, reflecting past experience as well as anticipated 
+
+First, you must develop your reasoning according to [Profiler Thought]. Follow the step-by-step guide below, and write your response in JSON format using the specified field names.
+
+# Profiler Thought
+1. Understand what information is contained in [review].
+2. Identify which parts of [review] map to the TPB profile components.
+3. Write the profile. Do not change the names of the profile components.
+4. Each component must not exceed two sentences.
+
+# Output Format
+Respond in the following JSON format:
+{{
+  "attitude": "...",
+  "subjective_norm": "...",
+  "perceived_behavioral_control": "..."
+}}
+
+Start the profiling
+Begin the profiling task now! Strictly follow [Task Instructions] and output your response in JSON format. </code></pre>
               </div>
 
               <h3 class="title is-4">2. Behavior Prediction Prompt</h3>
@@ -498,16 +528,34 @@ Please provide a detailed analysis for each TPB component in natural language, f
                     font-size: 0.9em;
                     line-height: 1.4;
                   "
-                ><code>Given the user profile and current context, predict the user's behavior based on their TPB characteristics.
+                ><code>You are highly skilled at role-playing. Imagine you are an **expert rating predictor**.  
+Your goal:  
+- Predict a rating between **1.0 – 5.0** based on the **user profile** and **review content**.
 
-User Profile:
-- Attitude: {attitude}
-- Subjective Norm: {subjective_norm} 
-- Perceived Behavioral Control: {perceived_behavioral_control}
+# General Task Description
+You are given:  
+- A user profile based on the Theory of Planned Behavior **[profile]**: {profile}  
+- A specific user review **[review]**: {review}
 
-Current Context: {current_context}
+# Task Instructions
+Using the given **[profile]**, understand the user and predict the rating they would give to the **[review]**. First, structure your thinking according to the **[Predictor Thought]** steps below. Follow the steps carefully and respond in JSON format using the **exact field names** provided.
 
-Based on this user's TPB profile, predict their {task_specific_behavior}. Consider how their attitude, social influences, and perceived control would shape their response in this situation.</code></pre>
+# Predictor Thought
+1. **Profile Analysis**: Understand the provided **[profile]**.  
+2. **Component Relationship Analysis**: According to TPB theory, determine the user’s intention—the degree to which they decide to perform a behavior—by considering the combination of Attitude, Subjective Norm, and Perceived Behavioral Control.  
+3. **Review Analysis**: Understand the review written by the user.  
+4. **Prediction**: Integrate insights from the profile and review to predict the most likely integer rating between **1–5**.  
+5. **Explanation**: Clearly state the reasoning for your prediction in the **[explanation]** field.  
+
+# Output Format
+Respond in the following JSON format:
+{{
+    "explanation": "...",
+    "rating": "..."
+}}
+
+# Start the Prediction
+Begin the rating prediction task now! Strictly follow the **[Task Instructions]** and respond in the specified JSON format.</code></pre>
               </div>
 
               <h3 class="title is-4">3. Profile Refinement Prompt</h3>
@@ -525,20 +573,45 @@ Based on this user's TPB profile, predict their {task_specific_behavior}. Consid
                     font-size: 0.9em;
                     line-height: 1.4;
                   "
-                ><code>The current user profile led to an incorrect prediction. Please refine the TPB profile based on the prediction error.
+                ><code>You are highly skilled at role-playing. Imagine that you are a top-tier refinement expert.  
+Your goal is to:  
+- Refinement the user's TPB-based profile.
 
-Current Profile:
-- Attitude: {current_attitude}
-- Subjective Norm: {current_subjective_norm}
-- Perceived Behavioral Control: {current_perceived_behavioral_control}
+# General Task Description
+The user's past data is provided. This past data consists of reviews the user previously wrote about a specific product.  
+- Past data [review]: {history}  
+- Rating attached to the review [ground truth]: {gt}  
+- User's Theory of Planned Behavior-based profile [profile]: {profile}  
+- Predicted rating based on the profile [prediction]: {pred}  
+- Basis for the predicted rating [explanation]: {explanation}
 
-Prediction Made: {predicted_behavior}
-Actual Behavior: {actual_behavior}
-Error Analysis: {error_explanation}
+# Task Instructions
+Your task is to refine the TPB-based [profile] to reduce the discrepancy between [prediction] and [ground truth] based on the grounds provided in [explanation].  
+First, you must develop your thinking as specified in [Refiner Thought]. Follow the step-by-step guide below, and write your response in JSON format using the specified field names.
 
-Based on this discrepancy, update the user's TPB profile to better reflect their true behavioral patterns. Focus on which components (attitude, subjective norm, or perceived behavioral control) might need adjustment to align with the observed behavior.
+# Refiner Thought
+1. Understand how the prediction deviated from the ground truth by comparing [prediction] and [ground truth].  
+2. Identify which aspects of the [profile] might have contributed to this discrepancy based on [explanation].  
+3. Decide on the direction of refinement.  
+   - **[prediction] > [ground truth]**:  
+     - The user's attitude may have been overestimated, so soften positive expressions or incorporate more negative/neutral cues.  
+     - Check whether social pressure (Subjective Norm) or perceived behavioral control (PBC) has been described higher than in reality, and modestly adjust them if necessary.  
+   - **[prediction] < [ground truth]**:  
+     - The user's attitude may have been underestimated, so emphasize positive experiences and satisfaction factors.  
+     - Strengthen the surrounding positive influence (Subjective Norm) or the perceived control (PBC) derived from successful experiences, adding grounds for the user to give a higher rating.  
+4. Do not include exact numeric values ([ground truth]) in the refined [profile].  
+5. Each component of the refined [profile] must not exceed two sentences.
 
-Provide the refined profile in the same JSON format with updated descriptions for each component.</code></pre>
+# Output Format
+Respond in the following JSON format:
+{{
+  "attitude": "...",
+  "subjective_norm": "...",
+  "perceived_behavioral_control": "..."
+}}
+
+# Start the Refinement
+Now begin your Refinement task! You should format your response strictly following the [Task Instructions]. Output the result in JSON format. </code></pre>
               </div>
 
               <h3 class="title is-4">4. Profile Update Prompt</h3>
