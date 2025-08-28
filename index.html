@@ -322,7 +322,7 @@
                 behavioral data.
               </p>
 
-              <h3 class="title is-4">Example: Product Rating Task</h3>
+              <h3 class="title is-4">Example: User #9157 - Product Rating Task</h3>
               <div
                 class="box"
                 style="
@@ -332,38 +332,50 @@
                 "
               >
                 <p>
-                  <strong>User Context:</strong> A user who frequently purchases
-                  and reviews electronics products
+                  <strong>User's First Review:</strong> "Very comfortable, and warm. Excellent sale, and a fast shipment and receipt."
+                  <br><strong>Ground Truth Rating:</strong> 5/5
                 </p>
                 <br />
-                <p><strong>Generated TPB Profile:</strong></p>
+                <p><strong>Initial TPB Profile Generated:</strong></p>
                 <ul>
                   <li>
-                    <strong>Attitude:</strong> "Values high-quality build and
-                    innovative features in electronics. Prioritizes durability
-                    and performance over price. Shows preference for established
-                    brands with good customer service."
+                    <strong>Attitude:</strong> "This user clearly holds a positive attitude towards purchasing this type of product, expressing satisfaction with its comfort and warmth. The phrasing 'Excellent sale' indicates a favorable evaluation of the purchase experience itself."
                   </li>
                   <li>
-                    <strong>Subjective Norm:</strong> "Influenced by tech
-                    enthusiast communities and online reviews. Considers
-                    recommendations from friends and family important for major
-                    purchases. Trusts expert reviews from technology websites."
+                    <strong>Subjective Norm:</strong> "The review doesn't explicitly mention social influence, but the positive experience suggests the user might perceive others would approve of this purchase. There's no indication of conflicting social pressures, implying a generally supportive social environment regarding this type of product."
                   </li>
                   <li>
-                    <strong>Perceived Behavioral Control:</strong> "Has
-                    sufficient budget for premium electronics. Comfortable with
-                    technical specifications and product comparisons. Confident
-                    in making informed purchasing decisions based on research."
+                    <strong>Perceived Behavioral Control:</strong> "The user demonstrates a high degree of perceived behavioral control, as evidenced by their description of a 'fast shipment and receipt'. This suggests they believe acquiring this product is easy and straightforward, based on a positive past experience."
                   </li>
                 </ul>
+                
+                <hr style="margin: 1rem 0; border: none; border-top: 1px solid #dee2e6;">
+                
+                <p>
+                  <strong>Later Review (Waterproof Boots):</strong> "The sale was easy, and shipping was fine. These are a very comfortable boot, with apparent strong materials and sewing. While the above is true...so is the fact the Boot sold as water proof LEAKS HORRIBLY. Leaving feet soaked from wet grass!"
+                  <br><strong>Ground Truth Rating:</strong> 5/5
+                </p>
+                <br />
+                <p><strong>Refined TPB Profile After 5 Iterations:</strong></p>
+                <ul>
+                  <li>
+                    <strong>Attitude:</strong> "The user initially expresses a positive attitude towards the boot's comfort and construction quality, appreciating the strong materials and sewing. However, the significant failure of the waterproofing feature introduces a substantial negative element, creating a mixed emotional response rather than complete disappointment."
+                  </li>
+                  <li>
+                    <strong>Subjective Norm:</strong> "The user feels a responsibility to share their experience, particularly regarding the waterproofing issue, suggesting a belief in the importance of accurate product information for others. This indicates a moderate awareness of social responsibility, driven by a desire to help fellow consumers make informed decisions."
+                  </li>
+                  <li>
+                    <strong>Perceived Behavioral Control:</strong> "The smooth purchase and shipping process provided a degree of initial confidence, but the boot's failure to perform its primary function – waterproofing – significantly impacts the user's overall sense of control. While the transaction itself was positive, the product's core functionality issue diminishes the user's feeling of having made a fully satisfactory purchase."
+                  </li>
+                </ul>
+                
+                <p style="margin-top: 1rem; font-style: italic; color: #6c757d;">
+                  <strong>TRIPLE's Prediction:</strong> 3/5 (Error: 2.0 → Final prediction after refinement correctly captured the user's mixed sentiment despite the highly negative language about waterproofing)
+                </p>
               </div>
 
               <p>
-                This example demonstrates how TRIPLE captures not just
-                surface-level preferences, but the underlying psychological and
-                social factors that drive user behavior, enabling more accurate
-                and interpretable personalization.
+                This real example from our evaluation demonstrates how TRIPLE evolves user profiles over time, capturing the nuanced psychological factors that drive user behavior. Despite the user's strong negative language about the waterproofing failure, they still gave a 5-star rating, which TRIPLE's refined profile was able to predict as a mixed but ultimately positive experience through understanding their underlying attitudes and behavioral patterns.
               </p>
             </div>
           </div>
