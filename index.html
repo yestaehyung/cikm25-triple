@@ -287,24 +287,160 @@
         <!-- Error Analysis Section -->
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">🔍 Error-Driven Refinement</h2>
+            <h2 class="title is-3">🔍 Profile Refinement Process</h2>
             <div class="content has-text-justified">
               <p>
-                Our framework's core refinement cycle is a form of error
-                analysis in action. The process assesses how well the current
-                user profile contributes to behavior prediction and continuously
-                updates it to minimize prediction error.
+                TRIPLE's refinement cycle continuously adapts user profiles
+                through behavioral feedback. When behavior predictions deviate
+                from actual outcomes, the framework analyzes the error and
+                updates the TPB components to better capture the user's
+                psychological state.
               </p>
+
+              <h3 class="title is-4">User #9157 Case Study</h3>
               <p>
-                When a prediction (e.g., a product rating) generated from the
-                user's profile is incorrect, the discrepancy between the
-                predicted behavior and the ground truth is used as a signal. The
-                LLM is then prompted to refine the user's TPB profile (Attitude,
-                Subjective Norm, Perceived Behavioral Control) based on this
-                error and a generated explanation. This iterative process allows
-                TRIPLE to dynamically correct and adapt the user's psychological
-                profile, leading to more accurate predictions in subsequent
-                steps.
+                Below is a real example showing how a user's TPB profile evolves
+                through the refinement process across multiple product reviews.
+                Each refinement iteration updates the profile based on
+                behavioral discrepancies to capture evolving user preferences.
+              </p>
+
+              <!-- Initial Profile -->
+              <div
+                class="box"
+                style="
+                  background-color: #e8f4f8;
+                  border-left: 4px solid #007bff;
+                "
+              >
+                <h4 class="title is-5">Initial Profile (Step 0)</h4>
+                <p>
+                  <strong>Review:</strong> "Very comfortable, and warm.
+                  Excellent sale, and a fast shipment and receipt."
+                </p>
+                <ul>
+                  <li>
+                    <strong>Attitude:</strong> "This user clearly holds a
+                    positive attitude towards purchasing this type of product,
+                    expressing satisfaction with its comfort and warmth. The
+                    phrasing 'Excellent sale' indicates a favorable evaluation
+                    of the purchase experience itself."
+                  </li>
+                  <li>
+                    <strong>Subjective Norm:</strong> "The review doesn't
+                    explicitly mention social influence, but the positive
+                    experience suggests the user might perceive others would
+                    approve of this purchase. There's no indication of
+                    conflicting social pressures."
+                  </li>
+                  <li>
+                    <strong>Perceived Behavioral Control:</strong> "The user
+                    demonstrates a high degree of perceived behavioral control,
+                    as evidenced by their description of a 'fast shipment and
+                    receipt'. This suggests they believe acquiring this product
+                    is easy and straightforward."
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Refined Profile After Step 1 -->
+              <div
+                class="box"
+                style="
+                  background-color: #f0f8e8;
+                  border-left: 4px solid #28a745;
+                "
+              >
+                <h4 class="title is-5">
+                  Updated Profile After Sizing Issue (Step 1)
+                </h4>
+                <p>
+                  <strong>New Review:</strong> "Had to return two pair, because
+                  the manufactures shoe last is 1 to 1/2 size smaller than any
+                  other foot wear I have, Of the same size."
+                </p>
+                <ul>
+                  <li>
+                    <strong>Attitude:</strong> "The user's initial attitude
+                    appears cautiously optimistic, noting a good sale, but is
+                    significantly impacted by a major fit issue. While they
+                    likely sought a comfortable and warm product, the need for
+                    multiple returns suggests a considerable degree of
+                    dissatisfaction with the product's core functionality."
+                  </li>
+                  <li>
+                    <strong>Subjective Norm:</strong> "The review provides no
+                    direct evidence of social influence, but the user's
+                    willingness to purchase again (if the sizing were correct)
+                    hints at a belief that others might also find the product
+                    appealing if it fit properly."
+                  </li>
+                  <li>
+                    <strong>Perceived Behavioral Control:</strong> "Although the
+                    initial shipment was fast, the necessity of returning two
+                    pairs significantly diminishes the user's sense of control
+                    over a successful purchase. The experience demonstrates that
+                    acquiring a satisfactory product is not straightforward,
+                    despite ease of initial delivery."
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Final Profile After Multiple Steps -->
+              <div
+                class="box"
+                style="
+                  background-color: #fff8e1;
+                  border-left: 4px solid #ff9800;
+                "
+              >
+                <h4 class="title is-5">Final Updated Profile (Step 3)</h4>
+                <p>
+                  <strong>Latest Review:</strong> "The sale was easy, and
+                  shipping was fine. These are a very comfortable boot, with
+                  apparent strong materials and sewing. While the above is
+                  true...so is the fact the Boot sold as water proof LEAKS
+                  HORRIBLY Leaving feet soaked from wet grass!"
+                </p>
+                <ul>
+                  <li>
+                    <strong>Attitude:</strong> "The user initially expresses a
+                    positive attitude towards the boot's comfort and
+                    construction quality, appreciating the strong materials and
+                    sewing. However, the significant failure of the
+                    waterproofing feature introduces a substantial negative
+                    element, creating a mixed emotional response rather than
+                    complete disappointment."
+                  </li>
+                  <li>
+                    <strong>Subjective Norm:</strong> "The user feels a
+                    responsibility to share their experience, particularly
+                    regarding the waterproofing issue, suggesting a belief in
+                    the importance of accurate product information for others.
+                    This indicates a moderate awareness of social
+                    responsibility, driven by a desire to help fellow consumers
+                    make informed decisions."
+                  </li>
+                  <li>
+                    <strong>Perceived Behavioral Control:</strong> "The smooth
+                    purchase and shipping process provided a degree of initial
+                    confidence, but the boot's failure to perform its primary
+                    function – waterproofing – significantly impacts the user's
+                    overall sense of control. While the transaction itself was
+                    positive, the product's core functionality issue diminishes
+                    the user's feeling of having made a fully satisfactory
+                    purchase."
+                  </li>
+                </ul>
+              </div>
+
+              <p>
+                This example demonstrates how TRIPLE captures the evolution of
+                user attitudes and behavioral patterns over time. The framework
+                adapts to new experiences (sizing issues, quality problems)
+                while maintaining core user preferences (comfort, reliability),
+                enabling more accurate personalization as more behavioral data
+                becomes available.
               </p>
             </div>
           </div>
@@ -322,65 +458,48 @@
                 behavioral data.
               </p>
 
-              <h3 class="title is-4">Improvement Case: User #9157 - Refinement Success Story</h3>
+              <h3 class="title is-4">Example: Product Rating Task</h3>
               <div
                 class="box"
                 style="
                   text-align: left;
                   background-color: #f8f9fa;
-                  border-left: 4px solid #28a745;
+                  border-left: 4px solid #007bff;
                 "
               >
                 <p>
-                  <strong>User's First Review (Clothing Item):</strong> "Very comfortable, and warm. Excellent sale, and a fast shipment and receipt."
-                  <br><strong>Ground Truth Rating:</strong> 5/5
-                  <br><strong>Initial Prediction:</strong> 5/5 ✅ (Error: 0.0)
+                  <strong>User Context:</strong> A user who frequently purchases
+                  and reviews electronics products
                 </p>
                 <br />
-                <p><strong>Initial TPB Profile:</strong></p>
-                <ul>
-                  <li><strong>Attitude:</strong> "Positive attitude towards purchasing, expressing satisfaction with comfort and warmth. Favorable evaluation of purchase experience."</li>
-                  <li><strong>Subjective Norm:</strong> "Generally supportive social environment regarding this type of product."</li>
-                  <li><strong>Perceived Behavioral Control:</strong> "High degree of control, evidenced by fast shipment experience."</li>
-                </ul>
-                
-                <hr style="margin: 1rem 0; border: none; border-top: 1px solid #dee2e6;">
-                
-                <p>
-                  <strong>Later Review (Waterproof Boots):</strong> "The sale was easy, and shipping was fine. These are a very comfortable boot, with apparent strong materials and sewing. While the above is true...so is the fact the Boot sold as water proof LEAKS HORRIBLY. Leaving feet soaked from wet grass!"
-                  <br><strong>Ground Truth Rating:</strong> 5/5
-                </p>
-                
-                <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; margin: 1rem 0;">
-                  <p><strong>🔄 Refinement Process:</strong></p>
-                  <ul style="margin-bottom: 0;">
-                    <li><strong>Initial Prediction:</strong> 2/5 ❌ (Error: 3.0)</li>
-                    <li><strong>Iteration 1:</strong> 2/5 ❌ (Error: 3.0 - No improvement)</li>
-                    <li><strong>Iteration 2:</strong> 5/5 ✅ (Error: 0.0 - <span style="color: #28a745; font-weight: bold;">Perfect prediction achieved!</span>)</li>
-                  </ul>
-                </div>
-                
-                <p><strong>Key Profile Refinement at Iteration 2:</strong></p>
+                <p><strong>Generated TPB Profile:</strong></p>
                 <ul>
                   <li>
-                    <strong>Attitude:</strong> "The user expresses a <u>strong positive attitude</u> towards the product, emphasizing both comfort and warmth, and clearly enjoyed the entire purchase experience. The language suggests a genuine satisfaction that goes beyond mere functional benefits, indicating a <u>positive emotional connection</u> to the product itself."
+                    <strong>Attitude:</strong> "Values high-quality build and
+                    innovative features in electronics. Prioritizes durability
+                    and performance over price. Shows preference for established
+                    brands with good customer service."
                   </li>
                   <li>
-                    <strong>Subjective Norm:</strong> "While not explicitly stated, the user's positive experience suggests they would likely recommend this product to others and believe it would be well-received. This implies a positive social perception surrounding the purchase, potentially influencing their overall satisfaction."
+                    <strong>Subjective Norm:</strong> "Influenced by tech
+                    enthusiast communities and online reviews. Considers
+                    recommendations from friends and family important for major
+                    purchases. Trusts expert reviews from technology websites."
                   </li>
                   <li>
-                    <strong>Perceived Behavioral Control:</strong> "The user demonstrates a high degree of confidence in the purchasing process, highlighted by the fast and efficient shipping. This seamless experience reinforces a sense of control and reliability, contributing to a <u>highly positive overall impression</u>."
+                    <strong>Perceived Behavioral Control:</strong> "Has
+                    sufficient budget for premium electronics. Comfortable with
+                    technical specifications and product comparisons. Confident
+                    in making informed purchasing decisions based on research."
                   </li>
                 </ul>
-                
-                <p style="margin-top: 1rem; font-style: italic; color: #6c757d;">
-                  <strong>📊 Overall Performance:</strong> Mean error: 1.0 | Refinement success rate: 25% (1/4 steps improved)
-                  <br><strong>Key Insight:</strong> The user values comfort and transaction experience over individual product flaws, leading to consistently high ratings despite specific complaints.
-                </p>
               </div>
 
               <p>
-                This improvement case demonstrates TRIPLE's refinement effectiveness. Initially, the framework misinterpreted the user's strong negative language about waterproofing as indicating a low rating. However, through iterative refinement, TRIPLE learned that this user maintains positive overall attitudes even when highlighting specific issues, achieving perfect prediction accuracy by iteration 2. This showcases how the framework adapts to individual user patterns and psychological tendencies.
+                This example demonstrates how TRIPLE captures not just
+                surface-level preferences, but the underlying psychological and
+                social factors that drive user behavior, enabling more accurate
+                and interpretable personalization.
               </p>
             </div>
           </div>
@@ -433,7 +552,7 @@
         </div>
 
         <!-- Related Work Section -->
-        <div class="columns is-centered has-text-centered">
+        <!-- <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">🔗 Related Work</h2>
             <div class="content has-text-justified">
@@ -460,7 +579,7 @@
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Prompts Used Section -->
         <div class="columns is-centered has-text-centered">
@@ -545,24 +664,24 @@ Begin the profiling task now! Strictly follow [Task Instructions] and output you
                     font-size: 0.9em;
                     line-height: 1.4;
                   "
-                ><code>You are highly skilled at role-playing. Imagine you are an **expert rating predictor**.  
+                ><code>You are highly skilled at role-playing. Imagine you are an expert rating predictor.  
 Your goal:  
-- Predict a rating between **1.0 – 5.0** based on the **user profile** and **review content**.
+- Predict a rating between 1.0 – 5.0 based on the user profile and review content.
 
 # General Task Description
 You are given:  
-- A user profile based on the Theory of Planned Behavior **[profile]**: {profile}  
-- A specific user review **[review]**: {review}
+- A user profile based on the Theory of Planned Behavior [profile]: {profile}  
+- A specific user review [review]: {review}
 
 # Task Instructions
-Using the given **[profile]**, understand the user and predict the rating they would give to the **[review]**. First, structure your thinking according to the **[Predictor Thought]** steps below. Follow the steps carefully and respond in JSON format using the **exact field names** provided.
+Using the given [profile], understand the user and predict the rating they would give to the [review]. First, structure your thinking according to the [Predictor Thought] steps below. Follow the steps carefully and respond in JSON format using the exact field names provided.
 
 # Predictor Thought
-1. **Profile Analysis**: Understand the provided **[profile]**.  
-2. **Component Relationship Analysis**: According to TPB theory, determine the user’s intention—the degree to which they decide to perform a behavior—by considering the combination of Attitude, Subjective Norm, and Perceived Behavioral Control.  
-3. **Review Analysis**: Understand the review written by the user.  
-4. **Prediction**: Integrate insights from the profile and review to predict the most likely integer rating between **1–5**.  
-5. **Explanation**: Clearly state the reasoning for your prediction in the **[explanation]** field.  
+1. Profile Analysis: Understand the provided [profile].  
+2. Component Relationship Analysis: According to TPB theory, determine the user’s intention—the degree to which they decide to perform a behavior—by considering the combination of Attitude, Subjective Norm, and Perceived Behavioral Control.  
+3. Review Analysis: Understand the review written by the user.  
+4. Prediction: Integrate insights from the profile and review to predict the most likely integer rating between 1–5.  
+5. Explanation: Clearly state the reasoning for your prediction in the [explanation] field.  
 
 # Output Format
 Respond in the following JSON format:
@@ -572,7 +691,7 @@ Respond in the following JSON format:
 }}
 
 # Start the Prediction
-Begin the rating prediction task now! Strictly follow the **[Task Instructions]** and respond in the specified JSON format.</code></pre>
+Begin the rating prediction task now! Strictly follow the [Task Instructions] and respond in the specified JSON format.</code></pre>
               </div>
 
               <h3 class="title is-4">3. Profile Refinement Prompt</h3>
@@ -610,10 +729,10 @@ First, you must develop your thinking as specified in [Refiner Thought]. Follow 
 1. Understand how the prediction deviated from the ground truth by comparing [prediction] and [ground truth].  
 2. Identify which aspects of the [profile] might have contributed to this discrepancy based on [explanation].  
 3. Decide on the direction of refinement.  
-   - **[prediction] > [ground truth]**:  
+   - [prediction] > [ground truth]:  
      - The user's attitude may have been overestimated, so soften positive expressions or incorporate more negative/neutral cues.  
      - Check whether social pressure (Subjective Norm) or perceived behavioral control (PBC) has been described higher than in reality, and modestly adjust them if necessary.  
-   - **[prediction] < [ground truth]**:  
+   - [prediction] < [ground truth]:  
      - The user's attitude may have been underestimated, so emphasize positive experiences and satisfaction factors.  
      - Strengthen the surrounding positive influence (Subjective Norm) or the perceived control (PBC) derived from successful experiences, adding grounds for the user to give a higher rating.  
 4. Do not include exact numeric values ([ground truth]) in the refined [profile].  
@@ -629,38 +748,6 @@ Respond in the following JSON format:
 
 # Start the Refinement
 Now begin your Refinement task! You should format your response strictly following the [Task Instructions]. Output the result in JSON format. </code></pre>
-              </div>
-
-              <h3 class="title is-4">4. Profile Update Prompt</h3>
-              <div
-                class="box"
-                style="
-                  text-align: left;
-                  background-color: #f8f9fa;
-                  border-left: 4px solid #6f42c1;
-                "
-              >
-                <pre
-                  style="
-                    white-space: pre-wrap;
-                    font-size: 0.9em;
-                    line-height: 1.4;
-                  "
-                ><code>Update the existing user profile with new behavioral data while preserving learned patterns from previous interactions.
-
-Previous Profile:
-- Attitude: {previous_attitude}
-- Subjective Norm: {previous_subjective_norm}
-- Perceived Behavioral Control: {previous_perceived_behavioral_control}
-
-New User Data: {new_user_data}
-
-Integrate the new information with the existing profile. Consider:
-1. How the new data might modify existing TPB components
-2. Which aspects of the previous profile should be preserved
-3. How to capture temporal evolution in user behavior
-
-Provide an updated TPB profile that reflects both historical patterns and recent behavioral changes.</code></pre>
               </div>
 
               <p>
